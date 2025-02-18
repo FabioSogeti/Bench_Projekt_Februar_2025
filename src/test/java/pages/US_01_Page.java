@@ -13,6 +13,6 @@ public class US_01_Page {
 
 
    // This locator is just an example. it must be changed to run any tests
-    @FindBy(xpath = "//div[@class='card-up']")
+    @FindBy(xpath = "//div[@class='stSelectbox']")
     public WebElement elementsCard;
 }

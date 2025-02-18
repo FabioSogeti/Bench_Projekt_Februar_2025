@@ -1,5 +1,5 @@
 package utilities;
-//iskender Remote branch inde  ilk  degisiklik local iskender branch i icin 
+
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -14,6 +14,7 @@ import org.testng.annotations.BeforeTest;
 import pages.US_01_Page;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
@@ -27,10 +28,10 @@ public class TestBase {
 
     @BeforeMethod
     public void setup() {
-        Driver.getDriver().get(ConfigReader.getProperty("demoqa_url"));
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
         us01Page = new US_01_Page();
         actions = new Actions(Driver.getDriver());
-        wait = new WebDriverWait(Driver.getDriver(),20);
+        wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
         Driver.getDriver().manage().window().maximize();
         Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
@@ -38,16 +39,15 @@ public class TestBase {
 
     @BeforeTest
     public void setUpTest(){
-        extentReports = new ExtentReports();// ExtentReports objesi üretelim
+        extentReports = new ExtentReports();
         String filePath = System.getProperty("user.dir") + "/reports/myprojectreport.html";// rapor için adresi belirleyelim.
-        extentHtmlReporter = new ExtentHtmlReporter(filePath);//extenthtmlreporter objesi üretelim
-        extentReports.attachReporter(extentHtmlReporter);//extentHtmlReporter objesini extentReports objesinin içine ekleyelim
-        //Rapor ile ilgili bilgileri artık buraya ekleyebiliriz
-        extentReports.setSystemInfo("Environment", "Environment İsim");
+        extentHtmlReporter = new ExtentHtmlReporter(filePath);
+        extentReports.attachReporter(extentHtmlReporter);
+        extentReports.setSystemInfo("Environment", "Environment NAme");
         extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser"));
-        extentReports.setSystemInfo("Automation Engineer", "Kemal Ozden");
-        extentHtmlReporter.config().setDocumentTitle("FHC Trip Reports");
-        extentHtmlReporter.config().setReportName("FHC Trip Automation Reports");
+        extentReports.setSystemInfo("Automation Engineer", "Somebody");
+        extentHtmlReporter.config().setDocumentTitle("Reports");
+        extentHtmlReporter.config().setReportName("Reports");
     }
     @AfterTest
     public void tearDownTest(){
@@ -70,5 +70,4 @@ public class TestBase {
         Driver.closeDriver();
     }
 }
-//Deneme
-//deneme_local'den reset'ten sonra
+
