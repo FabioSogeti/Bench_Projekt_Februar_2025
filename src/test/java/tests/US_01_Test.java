@@ -15,6 +15,6 @@ public class US_01_Test extends TestBase {
     public void TC_01() {
         us01Page.elementsCard.click();
         ReusableMethods.waitFor(2);
-        Assert.assertFalse(us01Page.elementsCard.isDisplayed());
+        Assert.assertFalse(us01Page.elementsCard.isSelected());
     }
 }

@@ -23,7 +23,7 @@ import utilities.TestBase;
         @Test
         public void testStartWithoutInternet() {
             System.out.println("Bitte vorher die Internetverbindung deaktivieren!");
-            // Prüfen, ob die Anwendung geladen wurde
+            //Prüfen, ob die Anwendung geladen wurde
             WebElement header = us04Page.title; // Überschrift auf der Seite
             Assert.assertNotNull(header, "Die Anwendung konnte nicht ohne Internetverbindung gestartet werden.");
         }
