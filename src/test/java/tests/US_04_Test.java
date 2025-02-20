@@ -14,23 +14,23 @@ import pages.US_04_Page;
 import utilities.Driver;
 import utilities.TestBase;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
 
     public class US_04_Test extends TestBase {
 
         US_04_Page us04Page = new US_04_Page();
-        //private WebDriver driver;
-        //private String baseURL = "http://localhost:8501/"; // Lokale URL anpassen
-        @Test(priority = 1)
+
+        //APP funktioniert ohne Internet verbindung
+        @Test
         public void testStartWithoutInternet() {
             System.out.println("Bitte vorher die Internetverbindung deaktivieren!");
             // Prüfen, ob die Anwendung geladen wurde
-            WebElement header = us04Page.title; // Beispiel für Überschrift auf der Seite
+            WebElement header = us04Page.title; // Überschrift auf der Seite
             Assert.assertNotNull(header, "Die Anwendung konnte nicht ohne Internetverbindung gestartet werden.");
         }
+
+
+
+
 
     }
 
