@@ -10,9 +10,14 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.testng.Assert;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -24,7 +29,7 @@ import java.util.function.Function;
 import static io.restassured.RestAssured.*;
 import static io.restassured.RestAssured.given;
 
-public class ReusableMethods {
+public class ReusableMethods extends TestBase {
     public static String getScreenshot(String name) throws IOException {
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
         TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
@@ -177,17 +182,10 @@ public class ReusableMethods {
         return hex;
     }
 
-    //---------demoqaPostApı-------------//
-    public static Response myPostResponse(Object myBody, String endpoint){
-        Response response;
-        response = given()
-                .contentType(ContentType.JSON)
-                .auth().basic("samet1","ABCabc987+%&")
-                .body(myBody)
-                .when()
-                .post(endpoint);
-        return response;
+
+
+
     }
 
 
-}
+
