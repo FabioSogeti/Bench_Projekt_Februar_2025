@@ -33,14 +33,14 @@ public class TestBase {
         actions = new Actions(Driver.getDriver());
         wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
         Driver.getDriver().manage().window().maximize();
-        Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
 
     @BeforeTest
     public void setUpTest(){
         extentReports = new ExtentReports();
-        String filePath = "reports/myprojectreport.html";// rapor için adresi belirleyelim.
+        String filePath = System.getProperty("user.dir")+ "reports/myprojectreport.html";// rapor için adresi belirleyelim.
         extentHtmlReporter = new ExtentHtmlReporter(filePath);
         extentReports.attachReporter(extentHtmlReporter);
         extentReports.setSystemInfo("Environment", "Environment Name");
