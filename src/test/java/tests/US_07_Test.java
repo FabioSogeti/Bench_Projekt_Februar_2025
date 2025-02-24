@@ -1,23 +1,12 @@
 package tests;
 
-import org.apache.poi.ss.usermodel.*;
-import org.json.JSONArray;
-import org.json.JSONObject;
+
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.US_07_Page;
 import utilities.*;
-
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import utilities.CsvUtil.*;
+
 
 import static utilities.Driver.driver;
 
@@ -41,7 +30,7 @@ public class US_07_Test extends TestBase {
         js.executeScript("arguments[0].value = '';", us07Page.datensatzInput); // Değeri temizle
         us07Page.datensatzInput.sendKeys("1"); // Yeni değeri gir
 
-        //click on DAten generieren
+        //click on Daten generieren
         us07Page.datenGenButton.click();
         //wähle dropdown
         us07Page.exportCSVDropdown.click();
