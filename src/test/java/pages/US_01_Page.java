@@ -76,6 +76,11 @@ public class US_01_Page {
     @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table")
     public WebElement table_generierte_daten;
 
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[2]")
+    public WebElement table_generierte_daten_scrollbalken;
+
+
+
 
     //Tabellenheader für den Datensatz "registrierung" und "login"
     @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[2]")
@@ -113,13 +118,13 @@ public class US_01_Page {
     @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[8]")
     public WebElement table_generierte_daten_header_telefonnummer;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[9]")
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[6]")
     public WebElement table_generierte_daten_header_alter;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[10]")
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[7]")
     public WebElement table_generierte_daten_header_geschlecht;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[11]")
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[8]")
     public WebElement table_generierte_daten_header_email;
 
 

@@ -4,6 +4,7 @@ import java.io.File;
 import java.time.Duration;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Sleeper;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,6 +13,7 @@ import utilities.ReusableMethods;
 import utilities.TestBase;
 
 public class US_01_Test extends TestBase {
+
 
 
     //This Test generates 5 data sets of the "registrieren" type, checks if they are shown and exports those as a .json file
@@ -260,6 +262,9 @@ public class US_01_Test extends TestBase {
         Assert.assertEquals(us01Page.table_generierte_daten_header_postleitzahl.getAttribute("innerText"),"postleitzahl");
         Assert.assertEquals(us01Page.table_generierte_daten_header_land.getAttribute("innerText"),"land");
         Assert.assertEquals(us01Page.table_generierte_daten_header_telefonnummer.getAttribute("innerText"),"telefonnummer");
+
+        actions.moveToElement(us01Page.table_generierte_daten_scrollbalken).clickAndHold().moveByOffset(500,0).pause(1000).release().perform();
+
         Assert.assertEquals(us01Page.table_generierte_daten_header_alter.getAttribute("innerText"),"alter");
         Assert.assertEquals(us01Page.table_generierte_daten_header_geschlecht.getAttribute("innerText"),"geschlecht");
         Assert.assertEquals(us01Page.table_generierte_daten_header_email.getAttribute("innerText"),"email");
