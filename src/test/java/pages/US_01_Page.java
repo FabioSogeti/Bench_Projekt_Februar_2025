@@ -77,7 +77,7 @@ public class US_01_Page {
     public WebElement table_generierte_daten;
 
 
-    //Tabellenheader für den Datensatz "registrierung"
+    //Tabellenheader für den Datensatz "registrierung" und "login"
     @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[2]")
     public WebElement table_generierte_daten_header_benutzername;
 
@@ -91,19 +91,47 @@ public class US_01_Page {
     public WebElement table_generierte_daten_header_agb_akzeptieren;
 
 
-    //@FindBy(xpath = "//div[@class='stSelectbox']")
-    //public WebElement elementsCard;
-    @FindBy(xpath = "(//li[@role='option'])[2]")
-    public WebElement loginCard;
-    @FindBy(xpath = "//button[@data-testid='stBaseButton-secondary']")
-    public WebElement generateData;
-    @FindBy(xpath = "//input[@id='number_input_1']")
-    public WebElement numItems;
-    @FindBy(xpath = "//div[@data-testid='stAlertContentSuccess']//p")
-    public WebElement datasuccess;
-    @FindBy(xpath = "//p[contains(text(),'Daten exportieren')]/../..")
-    public WebElement exportdata;
-    @FindBy(xpath = "//p[contains(text(),'\uD83D\uDCE5 Download JSON')]/../..")
-    public WebElement downloadjson;
+    //Tabellenheader für den Datensatz "registrierung"
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[2]")
+    public WebElement table_generierte_daten_header_nachname;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[3]")
+    public WebElement table_generierte_daten_header_vorname;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[4]")
+    public WebElement table_generierte_daten_header_strasse;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[5]")
+    public WebElement table_generierte_daten_header_stadt;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[6]")
+    public WebElement table_generierte_daten_header_postleitzahl;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[7]")
+    public WebElement table_generierte_daten_header_land;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[8]")
+    public WebElement table_generierte_daten_header_telefonnummer;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[9]")
+    public WebElement table_generierte_daten_header_alter;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[10]")
+    public WebElement table_generierte_daten_header_geschlecht;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[11]")
+    public WebElement table_generierte_daten_header_email;
+
+
+    //Tabellenheader für den Datensatz "bestellung"
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[2]")
+    public WebElement table_generierte_daten_header_produkt;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[3]")
+    public WebElement table_generierte_daten_header_menge;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div/section/div[1]/div/div/div/div[8]/div/div/div[2]/div[1]/div/div/div[1]/canvas[1]/table/thead/tr/th[4]")
+    public WebElement table_generierte_daten_header_preis;
+
 
 }
