@@ -263,8 +263,10 @@ public class US_01_Test extends TestBase {
         Assert.assertEquals(us01Page.table_generierte_daten_header_land.getAttribute("innerText"),"land");
         Assert.assertEquals(us01Page.table_generierte_daten_header_telefonnummer.getAttribute("innerText"),"telefonnummer");
 
+        // Scrollt die Tabelle nach rechts um die anderen tableheader zu überprüfen
         actions.moveToElement(us01Page.table_generierte_daten_scrollbalken).clickAndHold().moveByOffset(500,0).pause(1000).release().perform();
 
+        // Checkt die restlichen tableheader auf richtige Benamung
         Assert.assertEquals(us01Page.table_generierte_daten_header_alter.getAttribute("innerText"),"alter");
         Assert.assertEquals(us01Page.table_generierte_daten_header_geschlecht.getAttribute("innerText"),"geschlecht");
         Assert.assertEquals(us01Page.table_generierte_daten_header_email.getAttribute("innerText"),"email");
