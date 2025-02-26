@@ -1,6 +1,5 @@
 package utilities;
 
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
@@ -15,7 +14,6 @@ import pages.US_01_Page;
 
 import java.io.IOException;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class TestBase {
     public ExtentReports extentReports;
@@ -33,15 +31,16 @@ public class TestBase {
         actions = new Actions(Driver.getDriver());
         wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
         Driver.getDriver().manage().window().maximize();
-        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-    }
+        //Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
+        // Initialisiere extentTest hier
+        extentTest = extentReports.createTest("Test Suite");
+    }
 
     @BeforeTest
     public void setUpTest(){
         extentReports = new ExtentReports();
-        String filePath = System.getProperty("user.dir")+ "reports/myprojectreport.html";// rapor için adresi belirleyelim.
-        extentHtmlReporter = new ExtentHtmlReporter(filePath);
+        extentHtmlReporter = new ExtentHtmlReporter("reports/ExtentReport.html");
         extentReports.attachReporter(extentHtmlReporter);
         extentReports.setSystemInfo("Environment", "Environment Name");
         extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser"));
@@ -49,25 +48,27 @@ public class TestBase {
         extentHtmlReporter.config().setDocumentTitle("Reports");
         extentHtmlReporter.config().setReportName("Reports");
     }
+
     @AfterTest
     public void tearDownTest(){
         extentReports.flush();
     }
+
     @AfterMethod
     public void tearDownMethod(ITestResult result) throws IOException {
-        if (result.getStatus() == ITestResult.FAILURE) {//When test case fails, then take the screenshot and attached the report
-            String screenshotLocation = ReusableMethods.getScreenshot(result.getName());//getScreenshot is coming from ReusableMethods
+        if (result.getStatus() == ITestResult.FAILURE) {
+            String screenshotLocation = ReusableMethods.getScreenshot(result.getName());
             extentTest.fail(result.getName());
-            extentTest.addScreenCaptureFromPath(screenshotLocation);//adding the screenshot to the report
+            extentTest.addScreenCaptureFromPath(screenshotLocation);
             extentTest.fail(result.getThrowable());
         } else if (result.getStatus() == ITestResult.SKIP) {
             extentTest.skip("Test Case is skipped: " + result.getName());
         }
-    }
-
-    @AfterMethod
-    public void tearDownMethod2(){
+         else if (result.getStatus() == ITestResult.SUCCESS) {
+            extentTest.pass("Test Case is passed: " + result.getName());
+            String screenshotLocation = ReusableMethods.getScreenshot(result.getName());
+            extentTest.addScreenCaptureFromPath(screenshotLocation);
+        }
         Driver.closeDriver();
     }
 }
-

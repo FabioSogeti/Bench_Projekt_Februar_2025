@@ -23,8 +23,9 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static io.restassured.RestAssured.*;
 import static io.restassured.RestAssured.given;
@@ -183,6 +184,44 @@ public class ReusableMethods extends TestBase {
     }
 
 
+    public static boolean checkfileexists(String file_path, String file_type){
+        File directory = new File(file_path);
+        if (directory.exists() && directory.isDirectory()) {
+            File[] files = directory.listFiles();
+            // Define the regex pattern to match filenames like data(n).csv
+            String regex = "data\\((\\d+)\\)\\." + file_type;
+            Pattern pattern = Pattern.compile(regex);
+            // Variables to store the latest file and highest number
+            File latestFile = null;
+            int highestNumber = -1;
+            // Check each file
+            for (File file : files) {
+                Matcher matcher = pattern.matcher(file.getName());
+                if (matcher.matches()) {
+                    int number = Integer.parseInt(matcher.group(1));
+                    if (number > highestNumber) {
+                        highestNumber = number;
+                        latestFile = file;
+                    }
+                }
+            }
+            // Check for data.csv without a number
+            File dataFile = new File(directory, "data." + file_type);
+            if (dataFile.exists() && (highestNumber == -1 || latestFile == null)) {
+                latestFile = dataFile;
+            }
+            if (latestFile != null) {
+                System.out.println("Daten erfolgreich exportiert " + latestFile.getName());
+                return true;
+            } else {
+                System.out.println("No file matching the pattern was found.");
+                return false;
+            }
+        } else {
+            System.out.println("Directory does not exist.");
+            return false;
+        }
+    }
 
 
     }
